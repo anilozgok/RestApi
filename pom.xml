@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.beecel.rest</groupId>
+    <groupId>org.bicell.rest</groupId>
     <artifactId>RestApi</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -15,8 +15,6 @@
     </properties>
 
     <dependencies>
-
-
 
         <!-- https://mvnrepository.com/artifact/org.voltdb/voltdbclient -->
         <dependency>
@@ -46,6 +44,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.7.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.17.1</version>
         </dependency>
 
 

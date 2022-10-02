@@ -1,4 +1,4 @@
-package org.beecel.rest.api.email;
+package org.bicell.rest.api.email;
 
 public class email implements Message{
 

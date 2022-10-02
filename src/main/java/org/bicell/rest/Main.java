@@ -1,4 +1,4 @@
-package org.beecel.rest;
+package org.bicell.rest;
 
 public class Main {
     public static void main(String[] args) {

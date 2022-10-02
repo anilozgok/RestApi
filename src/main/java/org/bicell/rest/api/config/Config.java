@@ -1,4 +1,4 @@
-package org.beecel.rest.api.config;
+package org.bicell.rest.api.config;
 
 import org.springframework.context.annotation.*;
 
