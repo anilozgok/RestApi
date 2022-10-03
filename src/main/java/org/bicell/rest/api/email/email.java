@@ -7,7 +7,7 @@ public class email implements Message{
         sendEmail();
     }
 
-    public void sendEmail(){
+    private void sendEmail(){
         //logic
     }
 }
