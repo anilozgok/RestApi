@@ -13,18 +13,23 @@ public class LoginRepository {
     Encryption encryption = new Encryption();
 
     //TODO login logic will we implemented after oracele helper implementations. This is a temporary dummy login logic.
-    public ResponseEntity loginCheck(String MSISDN, String password) {
+    public Boolean loginCheck(String MSISDN, String password) {
 
-        String encryptedPassword=encryption.encryptPassword(password);
+        //TODO activate encryption
+        //String encryptedPassword=encryption.encryptPassword(password);
 
         Login login = new Login(MSISDN, password);
 
-        if (login.getMSISDN() == password && login.getPassword() == encryptedPassword) {
+        if (MSISDN.equals(MSISDN)  && password.equals(MSISDN)) {
             logger.info("login successful");
-            return new ResponseEntity(login, HttpStatus.OK);
+            System.out.println("login successful");
+//            return new ResponseEntity(login, HttpStatus.OK);
+            return true;
         } else {
             logger.info("login unsuccessful");
-            return new ResponseEntity(login, HttpStatus.BAD_REQUEST);
+            System.out.println("login unsuccessful");
+//            return new ResponseEntity(login, HttpStatus.BAD_REQUEST);
+            return false;
         }
     }
 }

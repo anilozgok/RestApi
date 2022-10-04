@@ -4,8 +4,9 @@ import org.bicell.rest.api.repository.LoginRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/login")
+@RestController
 @CrossOrigin //for CORS
+@RequestMapping("/login")
 public class LoginControllerWeb implements Login {
 
     LoginRepository loginRepository = new LoginRepository();
@@ -18,11 +19,12 @@ public class LoginControllerWeb implements Login {
      */
     @GetMapping("/{MSISDN}/{password}")
     @Override
-    public ResponseEntity loginCheck(@PathVariable String MSISDN, @PathVariable String password) {
+    public Boolean loginCheck(@PathVariable String MSISDN, @PathVariable String password) {
+        System.out.println(MSISDN+"\n"+password);
         return this.loginCheckWeb(MSISDN,password);
     }
 
-    private ResponseEntity loginCheckWeb(String MSISDN, String password) {
+    private Boolean loginCheckWeb(String MSISDN, String password) {
         return loginRepository.loginCheck(MSISDN,password);
     }
 }
