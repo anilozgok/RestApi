@@ -16,7 +16,7 @@ public class LoginControllerWeb implements Login {
      * @param password Password
      * @return ResponseEntity
      */
-    @GetMapping("/{MSISDN]/{password]")
+    @GetMapping("/{MSISDN}/{password}")
     @Override
     public ResponseEntity loginCheck(@PathVariable String MSISDN, @PathVariable String password) {
         return this.loginCheckWeb(MSISDN,password);

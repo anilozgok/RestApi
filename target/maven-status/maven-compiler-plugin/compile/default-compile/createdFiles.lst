@@ -6,7 +6,6 @@ org\bicell\rest\api\controller\Login\LoginControllerWeb.class
 org\bicell\rest\api\message\email.class
 org\bicell\rest\api\dbhelper\OracleHelper.class
 org\bicell\rest\api\swagger\SwaggerConfig.class
-org\bicell\rest\Main.class
 org\bicell\rest\api\repository\LoginRepository.class
 org\bicell\rest\api\ApiApplication.class
 org\bicell\rest\api\controller\Login\Login.class
