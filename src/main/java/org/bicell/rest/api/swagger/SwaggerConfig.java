@@ -12,6 +12,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 
 @Configuration
+@Profile({"!prod"})
 @EnableSwagger2
 public class SwaggerConfig {
 

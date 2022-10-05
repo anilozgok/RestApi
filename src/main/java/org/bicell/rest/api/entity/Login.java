@@ -1,24 +1,24 @@
 package org.bicell.rest.api.entity;
 
 public class Login {
-    private String MSISDN;
+    private String msisdn;
     private String password;
 
 
     public Login(String MSISDN, String password) {
-        this.MSISDN = MSISDN;
+        this.msisdn = MSISDN;
         this.password = password;
     }
 
     public Login() {
     }
 
-    public String getMSISDN() {
-        return MSISDN;
+    public String getMsisdn() {
+        return msisdn;
     }
 
-    public void setMSISDN(String MSISDN) {
-        this.MSISDN = MSISDN;
+    public void setMsisdn(String msisdn) {
+        this.msisdn = msisdn;
     }
 
     public String getPassword() {

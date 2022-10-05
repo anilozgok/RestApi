@@ -7,11 +7,11 @@ import java.util.TimeZone;
 
 public class OracleHelper {
 
-    private final String username="";
+    private final String username="bicell";
 
-    private final String password="";
+    private final String password="bicell";
 
-    private final String db_url="";
+    private final String db_url="jdbc:oracle:thin:@34.172.153.64:1521/XEPDB1";
 
 
     public OracleHelper() {
@@ -19,7 +19,10 @@ public class OracleHelper {
         TimeZone.setDefault(timeZone);
     }
 
-    public Connection getConnection() throws SQLException{
-        return DriverManager.getConnection(db_url, username, password);
+    public Connection getConnection() throws Exception{
+        Connection connection=null;
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+        connection=DriverManager.getConnection(db_url, username, password);
+        return connection;
     }
 }

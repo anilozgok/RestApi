@@ -1,35 +1,42 @@
 package org.bicell.rest.api.repository;
 
+import org.bicell.rest.api.dbhelper.OracleHelper;
 import org.bicell.rest.api.encryption.Encryption;
-import org.bicell.rest.api.entity.Login;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import java.util.logging.Logger;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
 
 
 public class LoginRepository {
-    Logger logger = Logger.getLogger(LoginRepository.class.getName());
 
     Encryption encryption = new Encryption();
 
-    //TODO login logic will we implemented after oracele helper implementations. This is a temporary dummy login logic.
-    public Boolean loginCheck(String MSISDN, String password) {
+    public ResponseEntity loginCheck(String msisdn, String password) throws Exception {
+        try {
+            OracleHelper oracleDbHelper = new OracleHelper();
+            Connection connection = oracleDbHelper.getConnection();
 
-        //TODO activate encryption
-        //String encryptedPassword=encryption.encryptPassword(password);
+            String encryptedPassword = encryption.encryptPassword(password);
 
-        Login login = new Login(MSISDN, password);
+            CallableStatement callableStatement = connection.prepareCall("{ ? = call package_subscriber.login(?,?)}");
+            callableStatement.registerOutParameter(1, Types.INTEGER);
+            callableStatement.setString(2, msisdn);
+            callableStatement.setString(3, password);
+            callableStatement.execute();
 
-        if (MSISDN.equals(MSISDN)  && password.equals(MSISDN)) {
-            logger.info("login successful");
-            System.out.println("login successful");
-//            return new ResponseEntity(login, HttpStatus.OK);
-            return true;
-        } else {
-            logger.info("login unsuccessful");
-            System.out.println("login unsuccessful");
-//            return new ResponseEntity(login, HttpStatus.BAD_REQUEST);
-            return false;
+            int checkUser = callableStatement.getInt(1);
+            if (checkUser == 1) {
+                return new ResponseEntity<>("Login successful", HttpStatus.OK);
+
+            } else {
+                return new ResponseEntity<>("Login unsuccessful", HttpStatus.BAD_REQUEST);
+            }
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>("Login unsuccessful", HttpStatus.BAD_REQUEST);
         }
     }
 }
