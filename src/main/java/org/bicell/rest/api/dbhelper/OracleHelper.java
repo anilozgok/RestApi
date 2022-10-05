@@ -21,7 +21,6 @@ public class OracleHelper {
 
     public Connection getConnection() throws Exception{
         Connection connection=null;
-        Class.forName("oracle.jdbc.driver.OracleDriver");
         connection=DriverManager.getConnection(db_url, username, password);
         return connection;
     }

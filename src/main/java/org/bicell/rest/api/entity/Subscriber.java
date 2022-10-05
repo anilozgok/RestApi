@@ -15,8 +15,7 @@ public class Subscriber {
     public Subscriber() {
     }
 
-    public Subscriber(int subsc_id, String msisdn, String name, String surname, String email, String password, Date sdate, Boolean status) {
-        this.subsc_id = subsc_id;
+    public Subscriber(String msisdn, String name, String surname, String email, String password, Date sdate, Boolean status) {
         this.msisdn = msisdn;
         this.name = name;
         this.surname = surname;

@@ -1,8 +1,11 @@
 package org.bicell.rest.api.controller;
 
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.ValidPort;
+import org.bicell.rest.api.email.EmailSenderService;
 import org.bicell.rest.api.encryption.Encryption;
-import org.bicell.rest.api.entity.Login;
+import org.bicell.rest.api.entity.Subscriber;
 import org.bicell.rest.api.repository.LoginRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,15 +15,23 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/login")
 public class LoginController {
 
+
     LoginRepository loginRepository = new LoginRepository();
     Encryption encryption=new Encryption();
 
     @PostMapping("/")
-    public ResponseEntity login(@RequestBody Login memberLogin) throws Exception{
-
-        return loginRepository.loginCheck(memberLogin.getMsisdn(), encryption.encryptPassword(memberLogin.getPassword()));
+    public ResponseEntity login(@RequestBody Subscriber subscriber) throws Exception{
+        return loginRepository.loginCheck(subscriber.getMsisdn(), subscriber.getPassword());
 
     }
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity forgotPassword(@RequestBody Subscriber subscriber) throws Exception{
+        return loginRepository.forgotPassword(subscriber);
+
+    }
+
+
 
     /*
     @PostMapping("/android")
