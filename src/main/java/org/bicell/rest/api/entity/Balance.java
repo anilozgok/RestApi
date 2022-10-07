@@ -12,15 +12,16 @@ public class Balance {
     private Date sdate;
     private Date edate;
 
-    public Balance(int subs_id, int package_id, int lvl_voice, int lvl_data, int lvl_sms, int price, Date sdate, Date edate) {
+    public Balance(int subs_id, int package_id, int lvl_voice, int lvl_data, int lvl_sms, int price) {
         this.subs_id = subs_id;
         this.package_id = package_id;
         this.lvl_voice = lvl_voice;
         this.lvl_data = lvl_data;
         this.lvl_sms = lvl_sms;
         this.price = price;
-        this.sdate = sdate;
-        this.edate = edate;
+    }
+
+    public Balance() {
     }
 
     public int getSubs_id() {

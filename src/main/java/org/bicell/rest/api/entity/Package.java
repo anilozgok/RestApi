@@ -2,13 +2,13 @@ package org.bicell.rest.api.entity;
 
 public class Package {
     private int package_id;
-    private int package_name;
+    private String package_name;
     private int amount_voice;
     private int amount_data;
     private int amount_sms;
     private int duration;
 
-    public Package(int package_id, int package_name, int amount_voice, int amount_data, int amount_sms, int duration) {
+    public Package(int package_id, String package_name, int amount_voice, int amount_data, int amount_sms, int duration) {
         this.package_id = package_id;
         this.package_name = package_name;
         this.amount_voice = amount_voice;
@@ -17,6 +17,7 @@ public class Package {
         this.duration = duration;
     }
 
+
     public Package() {
     }
 
@@ -24,11 +25,11 @@ public class Package {
         return package_id;
     }
 
-    public int getPackage_name() {
+    public String getPackage_name() {
         return package_name;
     }
 
-    public void setPackage_name(int package_name) {
+    public void setPackage_name(String package_name) {
         this.package_name = package_name;
     }
 

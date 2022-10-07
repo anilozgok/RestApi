@@ -9,13 +9,15 @@ public class Subscriber {
     private String surname;
     private String email;
     private String password;
-    private Date sdate;
-    private Boolean status;
+    private String sdate;
+    private String status;
+    private int package_id;
 
     public Subscriber() {
     }
 
-    public Subscriber(String msisdn, String name, String surname, String email, String password, Date sdate, Boolean status) {
+    public Subscriber(int subsc_id, String msisdn, String name, String surname, String email, String password, String sdate, String status) {
+        this.subsc_id=subsc_id;
         this.msisdn = msisdn;
         this.name = name;
         this.surname = surname;
@@ -69,19 +71,28 @@ public class Subscriber {
         this.password = password;
     }
 
-    public Date getSdate() {
+    public String getSdate() {
         return sdate;
     }
 
-    public void setSdate(Date sdate) {
+    public void setSdate(String sdate) {
         this.sdate = sdate;
     }
 
-    public Boolean getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
+
+    public int getPackage_id() {
+        return package_id;
+    }
+
+    public void setPackage_id(int package_id) {
+        this.package_id = package_id;
+    }
+
 }
